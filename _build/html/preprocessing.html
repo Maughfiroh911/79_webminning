@@ -1,0 +1,931 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Preprocessing &#8212; My sample book</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Ekstraksi Fitur" href="ekstraksi_fitur.html" />
+    <link rel="prev" title="CRAWLING DATA" href="crawling.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">My sample book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="ppwfiroh.html">
+                    CRAWLING DATA
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="crawling.html">
+   CRAWLING DATA
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Preprocessing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ekstraksi_fitur.html">
+   Ekstraksi Fitur
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lsa.html">
+   Topic Modelling LSA
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/preprocessing.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpreprocessing.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/preprocessing.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Preprocessing
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#menggunakan-50-data-pta-25-kategori-rpl-dan-25-kategori-cai">
+     Menggunakan 50 Data PTA, 25 Kategori RPL dan 25 Kategori CAI
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mengimport-library-yang-dibutuhkan">
+       Mengimport Library yang dibutuhkan
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#menampilkan-dokumen-dari-hasil-crawling">
+     Menampilkan dokumen  dari hasil Crawling
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   PREPROCESSING
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#case-folding">
+     Case Folding
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#menghilangkan-angka-dan-remove-punctuation">
+     Menghilangkan Angka dan Remove Punctuation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stopword">
+     Stopword
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Preprocessing</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Preprocessing
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#menggunakan-50-data-pta-25-kategori-rpl-dan-25-kategori-cai">
+     Menggunakan 50 Data PTA, 25 Kategori RPL dan 25 Kategori CAI
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mengimport-library-yang-dibutuhkan">
+       Mengimport Library yang dibutuhkan
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#menampilkan-dokumen-dari-hasil-crawling">
+     Menampilkan dokumen  dari hasil Crawling
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   PREPROCESSING
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#case-folding">
+     Case Folding
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#menghilangkan-angka-dan-remove-punctuation">
+     Menghilangkan Angka dan Remove Punctuation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stopword">
+     Stopword
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="preprocessing">
+<h1>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this headline">#</a></h1>
+<section id="menggunakan-50-data-pta-25-kategori-rpl-dan-25-kategori-cai">
+<h2>Menggunakan 50 Data PTA, 25 Kategori RPL dan 25 Kategori CAI<a class="headerlink" href="#menggunakan-50-data-pta-25-kategori-rpl-dan-25-kategori-cai" title="Permalink to this headline">#</a></h2>
+<section id="mengimport-library-yang-dibutuhkan">
+<h3>Mengimport Library yang dibutuhkan<a class="headerlink" href="#mengimport-library-yang-dibutuhkan" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;popular&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
+<span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
+
+<span class="kn">from</span> <span class="nn">Sastrawi.Stemmer.StemmerFactory</span> <span class="kn">import</span> <span class="n">StemmerFactory</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading collection &#39;popular&#39;
+[nltk_data]    | 
+[nltk_data]    | Downloading package cmudict to
+[nltk_data]    |     C:\Users\Hp\AppData\Roaming\nltk_data...
+[nltk_data]    |   Package cmudict is already up-to-date!
+[nltk_data]    | Downloading package gazetteers to
+[nltk_data]    |     C:\Users\Hp\AppData\Roaming\nltk_data...
+[nltk_data]    |   Package gazetteers is already up-to-date!
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package genesis to
+[nltk_data]    |     C:\Users\Hp\AppData\Roaming\nltk_data...
+[nltk_data]    |   Package genesis is already up-to-date!
+[nltk_data]    | Downloading package gutenberg to
+[nltk_data]    |     C:\Users\Hp\AppData\Roaming\nltk_data...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Package gutenberg is already up-to-date!
+[nltk_data]    | Downloading package inaugural to
+[nltk_data]    |     C:\Users\Hp\AppData\Roaming\nltk_data...
+[nltk_data]    |   Package inaugural is already up-to-date!
+[nltk_data]    | Downloading package movie_reviews to
+[nltk_data]    |     C:\Users\Hp\AppData\Roaming\nltk_data...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Package movie_reviews is already up-to-date!
+[nltk_data]    | Downloading package names to
+[nltk_data]    |     C:\Users\Hp\AppData\Roaming\nltk_data...
+[nltk_data]    |   Package names is already up-to-date!
+[nltk_data]    | Downloading package shakespeare to
+[nltk_data]    |     C:\Users\Hp\AppData\Roaming\nltk_data...
+[nltk_data]    |   Package shakespeare is already up-to-date!
+[nltk_data]    | Downloading package stopwords to
+[nltk_data]    |     C:\Users\Hp\AppData\Roaming\nltk_data...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Package stopwords is already up-to-date!
+[nltk_data]    | Downloading package treebank to
+[nltk_data]    |     C:\Users\Hp\AppData\Roaming\nltk_data...
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="menampilkan-dokumen-dari-hasil-crawling">
+<h2>Menampilkan dokumen  dari hasil Crawling<a class="headerlink" href="#menampilkan-dokumen-dari-hasil-crawling" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;abstrakv1.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>no</th>
+      <th>abstrak</th>
+      <th>kategori</th>
+      <th>kat_biner</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Perkembangan game yang semakin pesat, memberik...</td>
+      <td>rpl</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Sistem pengenalan wajah adalah suatu sistem un...</td>
+      <td>cai</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Sidik jari adalah salah satu karakteristik fis...</td>
+      <td>cai</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Teknologi biometrik saat ini mengalami perkemb...</td>
+      <td>cai</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Dalam setiap perusahaan tentunya memiliki data...</td>
+      <td>rpl</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="id1">
+<h1>PREPROCESSING<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<p>Preprocessing merupakan proses awal yang akan mentransformasikan data masukan menjadi data dengan format yang sesuai dan siap untuk diproses (Setyohadi et al., 2017).  Tahapan dalam proses text preprocessing antara lain yaitu cleansing, tokenizing, filtering, stopword dan lain-lain. Penerapan tahap text preprocessing dapat berbeda-beda untuk setiap bahasa tergantung dengan kebutuhan, karena perbedaan dalam bahasa tentu memiliki arti yang berbeda untuk tiap katanya.</p>
+<section id="case-folding">
+<h2>Case Folding<a class="headerlink" href="#case-folding" title="Permalink to this headline">#</a></h2>
+<p>Case folding merupakan langkah dalam pengolahan data yang bertujuan untuk mengubah ataumenghilangkan semua huruf kapital pada dokumen menjadi huruf kecil</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_abstrak</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span>
+<span class="n">data_abstrak</span> <span class="o">=</span> <span class="n">data_abstrak</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;abstrak_baru&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_abstrak</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;abstrak_baru&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     perkembangan game yang semakin pesat, memberik...
+1     sistem pengenalan wajah adalah suatu sistem un...
+2     sidik jari adalah salah satu karakteristik fis...
+3     teknologi biometrik saat ini mengalami perkemb...
+4     dalam setiap perusahaan tentunya memiliki data...
+5     penggunaan teknologi mobile saat ini sangat ma...
+6     pengenalan tulisan tangan merupakan topik pene...
+7      citra senyum merupakan salah satu fitur biome...
+8     kantor badan kepegawaian kota bangkalan adalah...
+9     perusahaan pemerintah maupun swasta mempunyai ...
+10    penyusunan sistem pendukung keputusan pemiliha...
+11    penelitian ini membahas tentang perancangan si...
+12    deteksi manusia merupakan  suatu aplikasi yang...
+13    dengan prediksi yang baik, dapat dibuat rencan...
+14    berawal dari permintaan akan straw (sperma bek...
+15    obat merupakan salah satu kebutuhan penting da...
+16    seiring dengan perubahan dalam paradigma pemba...
+17    kabupaten bangkalan memiliki lahan pertanian s...
+18    pengenalan tulisan tangan adalah salah satu ca...
+19    perkembangan teknologi informasi beberapa deka...
+20    persaingan produk unggulan daerah semakin keta...
+21    bahasa madura sebagai salah satu bahasa daerah...
+22    komunikasi merupakan hal yang sangat penting d...
+23    layanan akademik merupakan usaha yang dilakuka...
+24    sesuai dengan peraturan yang telah ditentukan ...
+25    media pembelajaran merupakan salah satu solusi...
+26    jalan raya merupakan prasarana transportasi ya...
+27    optical font recognition (ofr) merupakan  tekn...
+28    dinas kebudayaan dan pariwisata provinsi jawa ...
+29    pengenalan obyek merupakan penelitian yang men...
+30    pengenalan wajah sudah berkembang sehingga per...
+31    pengenalan suara merupakan gagasan teknologi y...
+32    berbagai penelitian tentang citra sidik jari, ...
+33    pengenalan wajah merupakan salah satu teknolog...
+34    game adalah kata dari  bahasa inggris yang ber...
+35     sistem pengenalan karakter plat nomor kendara...
+36    bahasa madura merupakan bahasa lokal tradision...
+37    selama ini prediksi ketepatan kelulusan mahasi...
+38    pengenalan  pola  tulisan  tangan  adalah  seb...
+39    perkembangan  teknologi  informasi  dan  komun...
+40    pesatnya perkembangan teknologi saat ini telah...
+41    sosialisasi uu nomor 22 tahun 2009 merupakan h...
+42    sistem pengenalan sidik jari bertujuan untuk m...
+43    pemilihan rektor merupakan agenda rutin yang d...
+44    teknik data mining adalah suatu cara yang digu...
+45    permasalahan machine learning dan pattern reco...
+46    pendeteksian plagiarisme dilakukan untuk mende...
+47    teknologi pendeteksian obyek menggunakan kamer...
+48    pada era teknologi informasi ini banyak hal ya...
+49    perkembangan mobile phone akhir-akhir ini sema...
+Name: abstrak_baru, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="menghilangkan-angka-dan-remove-punctuation">
+<h2>Menghilangkan Angka dan Remove Punctuation<a class="headerlink" href="#menghilangkan-angka-dan-remove-punctuation" title="Permalink to this headline">#</a></h2>
+<p>Remove Punctuation merupakan teknik penghilangan tanda baca yang digunakan dalam sebuah teks untuk membedakan antara kalimat dan bagian penyusunnya dan untukmemperjelas maknanya</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span> <span class="c1">#library re (regular expression (regex)) dapat digunakan untuk menghapus karakter angka.</span>
+<span class="kn">import</span> <span class="nn">string</span> <span class="c1">#library String digunakan untuk memproses string Python standar</span>
+
+<span class="k">def</span> <span class="nf">remove_number</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">return</span>  <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;abstrak_baru&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;abstrak_baru&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">remove_number</span><span class="p">)</span>
+
+<span class="c1">#remove punctuation</span>
+<span class="k">def</span> <span class="nf">remove_punctuation</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">text</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">))</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;abstrak_baru&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;abstrak_baru&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">remove_punctuation</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;abstrak_baru&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     perkembangan game yang semakin pesat memberika...
+1     sistem pengenalan wajah adalah suatu sistem un...
+2     sidik jari adalah salah satu karakteristik fis...
+3     teknologi biometrik saat ini mengalami perkemb...
+4     dalam setiap perusahaan tentunya memiliki data...
+5     penggunaan teknologi mobile saat ini sangat ma...
+6     pengenalan tulisan tangan merupakan topik pene...
+7      citra senyum merupakan salah satu fitur biome...
+8     kantor badan kepegawaian kota bangkalan adalah...
+9     perusahaan pemerintah maupun swasta mempunyai ...
+10    penyusunan sistem pendukung keputusan pemiliha...
+11    penelitian ini membahas tentang perancangan si...
+12    deteksi manusia merupakan  suatu aplikasi yang...
+13    dengan prediksi yang baik dapat dibuat rencana...
+14    berawal dari permintaan akan straw sperma beku...
+15    obat merupakan salah satu kebutuhan penting da...
+16    seiring dengan perubahan dalam paradigma pemba...
+17    kabupaten bangkalan memiliki lahan pertanian s...
+18    pengenalan tulisan tangan adalah salah satu ca...
+19    perkembangan teknologi informasi beberapa deka...
+20    persaingan produk unggulan daerah semakin keta...
+21    bahasa madura sebagai salah satu bahasa daerah...
+22    komunikasi merupakan hal yang sangat penting d...
+23    layanan akademik merupakan usaha yang dilakuka...
+24    sesuai dengan peraturan yang telah ditentukan ...
+25    media pembelajaran merupakan salah satu solusi...
+26    jalan raya merupakan prasarana transportasi ya...
+27    optical font recognition ofr merupakan  teknik...
+28    dinas kebudayaan dan pariwisata provinsi jawa ...
+29    pengenalan obyek merupakan penelitian yang men...
+30    pengenalan wajah sudah berkembang sehingga per...
+31    pengenalan suara merupakan gagasan teknologi y...
+32    berbagai penelitian tentang citra sidik jari t...
+33    pengenalan wajah merupakan salah satu teknolog...
+34    game adalah kata dari  bahasa inggris yang ber...
+35     sistem pengenalan karakter plat nomor kendara...
+36    bahasa madura merupakan bahasa lokal tradision...
+37    selama ini prediksi ketepatan kelulusan mahasi...
+38    pengenalan  pola  tulisan  tangan  adalah  seb...
+39    perkembangan  teknologi  informasi  dan  komun...
+40    pesatnya perkembangan teknologi saat ini telah...
+41    sosialisasi uu nomor  tahun  merupakan hal yan...
+42    sistem pengenalan sidik jari bertujuan untuk m...
+43    pemilihan rektor merupakan agenda rutin yang d...
+44    teknik data mining adalah suatu cara yang digu...
+45    permasalahan machine learning dan pattern reco...
+46    pendeteksian plagiarisme dilakukan untuk mende...
+47    teknologi pendeteksian obyek menggunakan kamer...
+48    pada era teknologi informasi ini banyak hal ya...
+49    perkembangan mobile phone akhirakhir ini semak...
+Name: abstrak_baru, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="stopword">
+<h2>Stopword<a class="headerlink" href="#stopword" title="Permalink to this headline">#</a></h2>
+<p>Stopword adalah stopwords merupakan kata yang diabaikan dalam pemrosesan dan biasanya disimpan di dalam stop lists. Stop list ini berisi daftar kata umum yang mempunyai fungsi tapi tidak mempunyai arti. Contoh stopword dalam bahasa Indonesia adalah “yang”, “dan”, “di”, “dari”, dll.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">stopping_word</span><span class="p">(</span><span class="n">contents</span><span class="p">):</span>    
+    <span class="n">data_kata</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">stop_words</span> <span class="o">=</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">)</span>
+    <span class="n">stop_words2</span> <span class="o">=</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;indonesian&#39;</span><span class="p">)</span>
+    <span class="n">stop_words</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">stop_words2</span><span class="p">)</span>
+    <span class="n">jmlData</span> <span class="o">=</span> <span class="n">contents</span><span class="o">.</span><span class="n">shape</span> 
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">jmlData</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">word_tokens</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">contents</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="c1"># print(word_tokens)</span>
+            
+        <span class="n">word_tokens_no_stopwords</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">word_tokens</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">]</span>
+
+        <span class="n">special_char</span> <span class="o">=</span> <span class="s2">&quot;+=`@_!#$%^&amp;*()&lt;&gt;?/\|}{~:;.[],1234567890‘’&#39;&quot;</span> <span class="o">+</span> <span class="s1">&#39;&quot;“”●&#39;</span>
+        <span class="n">out_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">string</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">special_char</span><span class="p">)</span> <span class="k">for</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">word_tokens_no_stopwords</span><span class="p">]</span>
+        <span class="c1"># print(&#39;List after removal of special characters:&#39;, out_list)</span>
+
+        <span class="k">while</span> <span class="s1">&#39;&#39;</span> <span class="ow">in</span> <span class="n">out_list</span><span class="p">:</span>
+            <span class="n">out_list</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">data_kata</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">out_list</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data_kata</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stop_kata</span> <span class="o">=</span> <span class="n">stopping_word</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;abstrak_baru&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;stop_kata&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stop_kata</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;stop_kata&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     [perkembangan, game, pesat, alternative, pemin...
+1     [sistem, pengenalan, wajah, sistem, mengenali,...
+2     [sidik, jari, salah, karakteristik, fisik, man...
+3     [teknologi, biometrik, mengalami, perkembangan...
+4     [perusahaan, memiliki, data, berkaitan, kegiat...
+5     [penggunaan, teknologi, mobile, marak, disampi...
+6     [pengenalan, tulisan, tangan, topik, penelitia...
+7     [citra, senyum, salah, fitur, biometrik, dijad...
+8     [kantor, badan, kepegawaian, kota, bangkalan, ...
+9     [perusahaan, pemerintah, swasta, tujuan, dicap...
+10    [penyusunan, sistem, pendukung, keputusan, pem...
+11    [penelitian, membahas, perancangan, sistem, in...
+12    [deteksi, manusia, aplikasi, berfungsi, mendet...
+13    [prediksi, rencana, kerja, perusahaan, efektif...
+14    [permintaan, straw, sperma, beku, sapi, mengha...
+15    [obat, salah, kebutuhan, rumah, sakit, kebutuh...
+16    [seiring, perubahan, paradigma, pembangunan, e...
+17    [kabupaten, bangkalan, memiliki, lahan, pertan...
+18    [pengenalan, tulisan, tangan, salah, cabang, p...
+19    [perkembangan, teknologi, informasi, dekade, p...
+20    [persaingan, produk, unggulan, daerah, ketat, ...
+21    [bahasa, madura, salah, bahasa, daerah, indone...
+22    [komunikasi, kehidupan, bermasyarakat, orang, ...
+23    [layanan, akademik, usaha, perguruan, kemudaha...
+24    [sesuai, peraturan, ditentukan, pemberi, beasi...
+25    [media, pembelajaran, salah, solusi, mempermud...
+26    [jalan, raya, prasarana, transportasi, vital, ...
+27    [optical, font, recognition, ofr, teknik, anal...
+28    [dinas, kebudayaan, pariwisata, provinsi, jawa...
+29    [pengenalan, obyek, penelitian, menggabungkan,...
+30    [pengenalan, wajah, berkembang, perkembangan, ...
+31    [pengenalan, suara, gagasan, teknologi, bertuj...
+32    [penelitian, citra, sidik, jari, pendeteksian,...
+33    [pengenalan, wajah, salah, teknologi, biometri...
+34    [game, bahasa, inggris, permainan, pertandinga...
+35    [sistem, pengenalan, karakter, plat, nomor, ke...
+36    [bahasa, madura, bahasa, lokal, tradisional, w...
+37    [prediksi, ketepatan, kelulusan, mahasiswa, ju...
+38    [pengenalan, pola, tulisan, tangan, teknik, di...
+39    [perkembangan, teknologi, informasi, komunikas...
+40    [pesatnya, perkembangan, teknologi, berpengaru...
+41    [sosialisasi, uu, nomor, kompleksitas, banyakn...
+42    [sistem, pengenalan, sidik, jari, bertujuan, m...
+43    [pemilihan, rektor, agenda, rutin, dilaksanaka...
+44    [teknik, data, mining, menggali, informasi, me...
+45    [permasalahan, machine, learning, pattern, rec...
+46    [pendeteksian, plagiarisme, mendeteksi, plagia...
+47    [teknologi, pendeteksian, obyek, kamera, siste...
+48    [era, teknologi, informasi, mejadi, disalah, s...
+49    [perkembangan, mobile, phone, akhirakhir, meni...
+Name: stop_kata, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="crawling.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">CRAWLING DATA</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="ekstraksi_fitur.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Ekstraksi Fitur</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By The Jupyter Book Community<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,10 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: ppwfiroh
+chapters:
+  - file: crawling
+  - file: preprocessing
+  - file: ekstraksi_fitur
+  - file: lsa

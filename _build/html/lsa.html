@@ -1,0 +1,820 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Topic Modelling LSA &#8212; My sample book</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Ekstraksi Fitur" href="ekstraksi_fitur.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">My sample book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="ppwfiroh.html">
+                    CRAWLING DATA
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="crawling.html">
+   CRAWLING DATA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="preprocessing.html">
+   Preprocessing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ekstraksi_fitur.html">
+   Ekstraksi Fitur
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Topic Modelling LSA
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/lsa.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flsa.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/lsa.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#daftar-pustaka">
+   Daftar Pustaka
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Topic Modelling LSA</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#daftar-pustaka">
+   Daftar Pustaka
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="topic-modelling-lsa">
+<h1>Topic Modelling LSA<a class="headerlink" href="#topic-modelling-lsa" title="Permalink to this headline">#</a></h1>
+<p>Latent semantic analysis (LSA) adalah teknik dalam pemrosesan bahasa alami , khususnya semantik distribusional , menganalisis hubungan antara satu set dokumen dan istilah yang dikandungnya dengan menghasilkan satu set konsep yang terkait dengan dokumen dan istilah.
+langkah-langkah LSA sebagai berikut:</p>
+<ol class="simple">
+<li><p>Teks Preprocessing</p></li>
+<li><p>Term-document Matrix</p></li>
+<li><p>Singular Value Decomposition
+Singular Value Decomposition (SVD) adalah salah satu teknik reduksi dimensi yang bermanfaat untuk memperkecil nilai kompleksitas dalam pemrosesan term-document matrix. SVD merupakan teorema aljabar linier yang menyebutkan bahwa persegi panjang dari term-document matrix dapat dipecah/didekomposisikan menjadi tiga matriks, yaitu :
+– Matriks ortogonal U
+– Matriks diagonal S
+– Transpose dari matriks ortogonal V
+Yang dirumuskan dengan :</p></li>
+</ol>
+<p><span class="math notranslate nohighlight">\(A_{m n}=U_{m m} x S_{m n} x V_{n n}^{T}\)</span></p>
+<p>Keterangan:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{ll}\mathrm{A}_{\mathrm{mn}}= &amp; \text { matriks awal } \\ \mathrm{U}_{\mathrm{mm}}= &amp; \text { matriks ortogonal U } \\ \mathrm{S}_{\mathrm{mn}}= &amp; \text { matriks diagonal } \mathrm{s} \\ \mathrm{V}_{n \pi}^{\top}= &amp; \text { transpose matriks ortogonal } \mathrm{V}\end{array}\end{split}\]</div>
+<p>Hasil dari proses SVD adalah vektor yang akan digunakan untuk menghitung similaritasnya dengan pendekatan cosine similarity.</p>
+<ol class="simple">
+<li><p>Cosine Similarity Measurement
+Cosine similarity digunakan untuk menghitung nilai kosinus sudut antara vektor dokumen dengan vektor kueri. Semakin kecil sudut yang dihasilkan, maka tingkat kemiripan esai semakin tinggi.
+Formula dari cosine similarity adalah sebagai berikut:</p></li>
+</ol>
+<p>\begin{equation}
+\cos \alpha=\frac{\boldsymbol{A} \cdot \boldsymbol{B}}{|\boldsymbol{A}||\boldsymbol{B}|}=\frac{\sum_{i=1}^{n} \boldsymbol{A}<em>{i} X \boldsymbol{B}</em>{i}}{\sqrt{\sum_{i=1}^{n}\left(\boldsymbol{A}<em>{i}\right)^{2}} X \sqrt{\sum</em>{i=1}^{n}\left(\boldsymbol{B}_{i}\right)^{2}}}
+\end{equation}</p>
+<p>Keterangan:</p>
+<p>A <span class="math notranslate nohighlight">\(\quad=\)</span> vektor dokumen</p>
+<p>B <span class="math notranslate nohighlight">\(\quad=\)</span> vektor kueri</p>
+<p>A <span class="math notranslate nohighlight">\(\cdot \mathbf{B}=\)</span> perkalian <span class="math notranslate nohighlight">\(\operatorname{dot}\)</span> vektor <span class="math notranslate nohighlight">\(\mathrm{A}\)</span> dan vektor <span class="math notranslate nohighlight">\(\mathrm{B}\)</span></p>
+<p><span class="math notranslate nohighlight">\(|\mathrm{A}| \quad=\)</span> panjang vektor <span class="math notranslate nohighlight">\(\mathrm{A}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\left.\right|^{\boldsymbol{B}} \mid \quad=\)</span> panjang vektor <span class="math notranslate nohighlight">\(B\)</span></p>
+<p><span class="math notranslate nohighlight">\(\mid \boldsymbol{A}_{|| \mathrm{B} \mid}=\)</span> cross product antara <span class="math notranslate nohighlight">\(|\mathrm{A}|\)</span> dan <span class="math notranslate nohighlight">\(|\mathrm{B}|\)</span></p>
+<p>Dari hasil cosine similarity, akan didapatkan nilai yang akan dibandingkan dengan penilaian manusia untuk diuji selisih nilainya.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">TruncatedSVD</span>
+<span class="n">lsa_model</span> <span class="o">=</span> <span class="n">TruncatedSVD</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s1">&#39;randomized&#39;</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="n">lsa_top</span><span class="o">=</span><span class="n">lsa_model</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">vect_text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_10868</span><span class="o">/</span><span class="mf">3090274223.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">lsa_model</span> <span class="o">=</span> <span class="n">TruncatedSVD</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s1">&#39;randomized&#39;</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">lsa_top</span><span class="o">=</span><span class="n">lsa_model</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">vect_text</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;vect_text&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">lsa_top</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lsa_top</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># (no_of_doc*no_of_topics)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.06882448  0.27245523 -0.00387394 ...  0.14532464  0.00134145
+   0.00661104]
+ [ 0.56578288 -0.25181322 -0.24192285 ...  0.09406852  0.09104575
+   0.02513334]
+ [ 0.2734554  -0.13616611  0.72362478 ... -0.01284269 -0.31929787
+   0.0739685 ]
+ ...
+ [ 0.54043373 -0.28470221 -0.18874866 ... -0.02306753  0.0146919
+  -0.09316259]
+ [ 0.15848935  0.10863096  0.06272179 ...  0.01203472  0.03770214
+   0.01633764]
+ [ 0.532259   -0.0269196  -0.14266228 ... -0.00155156 -0.00797086
+   0.0377059 ]]
+(50, 50)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="o">=</span><span class="n">lsa_top</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Document 0 :&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">topic</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Topic &quot;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="s2">&quot; : &quot;</span><span class="p">,</span><span class="n">topic</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Document 0 :
+Topic  0  :  6.882448356653467
+Topic  1  :  27.24552321029806
+Topic  2  :  -0.38739398904237504
+Topic  3  :  24.38173039473795
+Topic  4  :  1.8496010417855302
+Topic  5  :  14.060404487449501
+Topic  6  :  64.91171302028877
+Topic  7  :  12.589149754545993
+Topic  8  :  -12.156488745115082
+Topic  9  :  -35.43167579935794
+Topic  10  :  6.200957404255839
+Topic  11  :  -2.721771808514066
+Topic  12  :  -3.3518781141456317
+Topic  13  :  -2.766649136370064
+Topic  14  :  6.247612390914547
+Topic  15  :  -1.4616632405353294
+Topic  16  :  -0.8364506365120918
+Topic  17  :  0.18099297588821578
+Topic  18  :  0.6677569410536411
+Topic  19  :  -2.9036953440621716
+Topic  20  :  0.8525393554096086
+Topic  21  :  4.31850613751586
+Topic  22  :  -3.794730391180355
+Topic  23  :  -2.641639696343228
+Topic  24  :  -0.27325688435625023
+Topic  25  :  -0.7573868440355351
+Topic  26  :  2.178185992685262
+Topic  27  :  2.5221304613252062
+Topic  28  :  1.9349818406295256
+Topic  29  :  -0.839378807724718
+Topic  30  :  -0.3518936350162549
+Topic  31  :  -3.612764973428969
+Topic  32  :  -2.4162384477566867
+Topic  33  :  -2.5869455732705915
+Topic  34  :  -1.1177730444768263
+Topic  35  :  8.371127336689762
+Topic  36  :  -2.481542803617722
+Topic  37  :  -4.010871308479249
+Topic  38  :  5.314041528694658
+Topic  39  :  2.67061524059641
+Topic  40  :  0.43161085528775484
+Topic  41  :  -14.394740634345812
+Topic  42  :  6.799362720326655
+Topic  43  :  -3.0568649908214245
+Topic  44  :  -42.25423578083031
+Topic  45  :  -7.126502566320136
+Topic  46  :  -1.1909786506463018
+Topic  47  :  14.532464429928355
+Topic  48  :  0.13414506671538093
+Topic  49  :  0.6611037960780882
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">Nilai</span> <span class="o">=</span> <span class="n">topic</span>
+<span class="n">topic2</span> <span class="o">=</span> <span class="n">l</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">topic2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/lsa_5_0.png" src="_images/lsa_5_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">lsa_model</span><span class="o">.</span><span class="n">components_</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># (no_of_topics*no_of_words)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lsa_model</span><span class="o">.</span><span class="n">components_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(50, 1000)
+[[ 0.02083154  0.00613697  0.01351605 ...  0.00548304  0.02083154
+   0.03124731]
+ [ 0.00027003  0.00933731 -0.00565027 ... -0.0051317   0.00027003
+   0.00040504]
+ [-0.00591647  0.00098918 -0.00082242 ...  0.03121209 -0.00591647
+  -0.0088747 ]
+ ...
+ [ 0.02481044  0.00279789 -0.00438256 ... -0.00236904  0.02481044
+   0.03721567]
+ [ 0.00406422 -0.00223938  0.00771051 ... -0.07394541  0.00406422
+   0.00609632]
+ [-0.01521117 -0.00326002  0.03188588 ...  0.021489   -0.01521117
+  -0.02281675]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># most important words for each topic</span>
+<span class="n">vocab</span> <span class="o">=</span> <span class="n">vect</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">comp</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lsa_model</span><span class="o">.</span><span class="n">components_</span><span class="p">):</span>
+    <span class="n">vocab_comp</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">vocab</span><span class="p">,</span> <span class="n">comp</span><span class="p">)</span>
+    <span class="n">sorted_words</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">vocab_comp</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Topic &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;: &quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">sorted_words</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c:\users\hp\appdata\local\programs\python\python39\lib\site-packages\sklearn\utils\deprecation.py:87: FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2. Please use get_feature_names_out instead.
+  warnings.warn(msg, category=FutureWarning)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Topic 0: 
+citra wajah pengenalan data proses sistem metode tulisan tangan penelitian 
+
+Topic 1: 
+pembelajaran bahasa madura game siswa aplikasi teknologi pendidikan guru kriteria 
+
+Topic 2: 
+sidik jari minutiae corepoint otomatis skenario nilai ridge geometry lakukan 
+
+Topic 3: 
+pembelajaran bahasa game wajah madura sidik jari aplikasi siswa citra 
+
+Topic 4: 
+tulisan tangan huruf telapak pengenalan karakter carakan pola arah orang 
+
+Topic 5: 
+dokumen plagiarisme nilai similarity fingerprint gram index latent semantik svd 
+
+Topic 6: 
+game madura sapi budaya bahasa karapan kerapan html kriteria tulisan 
+
+Topic 7: 
+peramalan straw mse produksi error kebutuhan square single mape komputer 
+
+Topic 8: 
+bahasa rule madura data support teknik pohon mahasiswa prediksi keputusan 
+
+Topic 9: 
+bahasa madura siswa peramalan tangan produksi tulisan single dasar obyek 
+
+Topic 10: 
+bangkalan jalan pertanian kondisi lahan tanaman bahasa madura arsitektur togaf 
+
+Topic 11: 
+suara karakter citra filter akurasi perhitungan eksperimen plat evoting pengucapan 
+
+Topic 12: 
+rule support prediksi pohon mahasiswa pembelajaran karakter minsup citra terbentuk 
+
+Topic 13: 
+kebutuhan citra akademik lunak rekayasa perangkat obat bpms proses jalan 
+
+Topic 14: 
+sms pesan orang toefl android mobile teknologi ips penyusupan serangan 
+
+Topic 15: 
+suara evoting rektor manusia perhitungan jalan telapak pemilih proses pemilihan 
+
+Topic 16: 
+tuna komunikasi senyum perusahaan ips penyusupan serangan snort server jalan 
+
+Topic 17: 
+jalan kondisi presentase sosialisasi pemetaan masyarakat wajah media ir nya 
+
+Topic 18: 
+senyum pola pengenalan wajah ips penyusupan serangan snort obyek dikenali 
+
+Topic 19: 
+aksara edm beasiswa rule teknik toefl perusahaan mobile ofr support 
+
+Topic 20: 
+obat nilai beasiswa straw mape epoch sms memperoleh jalan kondisi 
+
+Topic 21: 
+beasiswa senyum akademik penerima sms bpms aksara menerima layanan edm 
+
+Topic 22: 
+kemiskinan smarter telapak keputusan rumah jenis senyum toefl ips penyusupan 
+
+Topic 23: 
+beasiswa karakter ips penyusupan serangan snort straw sistem menerima server 
+
+Topic 24: 
+presentase sosialisasi aksara obat edm kemiskinan ratarata ir nya vsm 
+
+Topic 25: 
+senyum straw telapak senyuman pca otomatis lda ordered filter karakter 
+
+Topic 26: 
+straw error permintaan suara akademik penentuan mse pengucapan sapi bpms 
+
+Topic 27: 
+sms pesan informasi pertanian pemilihan lahan tanaman cipherteks evoting jalan 
+
+Topic 28: 
+objek manusia chain code perhitungan huruf obat hog pengawasan video 
+
+Topic 29: 
+telapak obyek keypoint rekayasa lunak threshold orang perangkat proyek kebutuhan 
+
+Topic 30: 
+pertanian lahan tanaman produksi support presentase sosialisasi ha manusia rule 
+
+Topic 31: 
+straw telapak tuna pertanian unggulan lahan tanaman œzâ industri memilih 
+
+Topic 32: 
+toefl mobile tuna kemiskinan support penelitian android smarter akademik layanan 
+
+Topic 33: 
+prediksi pohon obat mahasiswa kelulusan tree toefl pertanian tulisan training 
+
+Topic 34: 
+skenario citra face pose tulisan phone minutiae bidang fingerprint gram 
+
+Topic 35: 
+komputer toefl teknologi tes internet industri memilih persaingan produk telapak 
+
+Topic 36: 
+telapak kapital mesin evoting minutiae perusahaan jabatan karyawan dikembangkan sub 
+
+Topic 37: 
+telapak chain code pose orl produksi algoritma face biner alphabet 
+
+Topic 38: 
+ekspresi tekstur telapak straw kemiripan produksi keypoint citra toefl senyum 
+
+Topic 39: 
+pariwisata wisata ekspresi jawa timur asesoris unggulan pose square terbaik 
+
+Topic 40: 
+minutiae keypoint obyek permasalahan basis orl skenario tuna bern kpca 
+
+Topic 41: 
+sesuai deployment quality pembelajaran function matriks interaktif asesoris guru kreatif 
+
+Topic 42: 
+minutiae ridge index latent semantik svd ekspresi mendeteksi matriks pendeteksian 
+
+Topic 43: 
+pose index latent semantik svd matriks citra orl dokumen dimensi 
+
+Topic 44: 
+html browser game siswa web construct permainan straw matematika engine 
+
+Topic 45: 
+manusia angular separation minutiae discriminant two identitas dimensional linear pose 
+
+Topic 46: 
+pendeteksian haar organ biometric senyum fitur tuna deteksi didalam penelition 
+
+Topic 47: 
+siswa dasar dipelajari elearning jaman modern modul samporna sekolah sapi 
+
+Topic 48: 
+citra distorsi sidik sudut jari pelatihan masukan senyum phaseonly poc 
+
+Topic 49: 
+tangan lvq mdf quantization minutiae penulis vector berbeda learning otomatis 
+</pre></div>
+</div>
+</div>
+</div>
+<section id="daftar-pustaka">
+<h2>Daftar Pustaka<a class="headerlink" href="#daftar-pustaka" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Nawassyarif, Julkarnain M, K. R. A. (2020). 338108-sistem-informasi-pengolahan-data-ternak-30b9d1b3 ( Pengertian Sistem infomasi. Jurnal JINTEKS, 2(1), 32–39.</p></li>
+<li><p>Hanifah, R., &amp; Nurhasanah, I. S. (2018). Implementasi Web Crawling Untuk Mengumpulkan Web Crawling Implementation for Collecting. Jurnal Teknologi Informasi Dan Ilmu Komputer (JTIIK), 5(5), 531–536. <a class="reference external" href="https://doi.org/10.25126/jtiik20185842">https://doi.org/10.25126/jtiik20185842</a></p></li>
+<li><p><a class="reference external" href="https://docs.scrapy.org/en/latest/intro/tutorial.html">https://docs.scrapy.org/en/latest/intro/tutorial.html</a></p></li>
+<li><p>Setyohadi, D. B., Kristiawan, F. A., &amp; Ernawati, E. (2017). Perbaikan Performansi Klasifikasi Dengan Preprocessing Iterative Partitioning Filter Algorithm. Telematika, 14(01), 12–20. <a class="reference external" href="https://doi.org/10.31315/telematika.v14i01.1960">https://doi.org/10.31315/telematika.v14i01.1960</a></p></li>
+<li><p>Merinda Lestandy, Abdurrahim Abdurrahim, &amp; Lailis Syafa’ah. (2021). Analisis Sentimen Tweet Vaksin COVID-19 Menggunakan Recurrent Neural Network dan Naïve Bayes. Jurnal RESTI (Rekayasa Sistem Dan Teknologi Informasi), 5(4), 802–808. <a class="reference external" href="https://doi.org/10.29207/resti.v5i4.3308">https://doi.org/10.29207/resti.v5i4.3308</a></p></li>
+<li><p>Prihatini, P. M. (2016). Implementasi Ekstraksi Fitur Pada Pengolahan Dokumen Berbahasa Indonesia. Jurnal Matrix, 6(3), 174–178.</p></li>
+<li><p><a class="reference external" href="https://socs.binus.ac.id/2015/08/03/penggunaan-latent-semantic-analysis-lsa-dalam-pemrosesan-teks/">https://socs.binus.ac.id/2015/08/03/penggunaan-latent-semantic-analysis-lsa-dalam-pemrosesan-teks/</a></p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/code/rajmehra03/topic-modelling-using-lda-and-lsa-in-sklearn/notebook">https://www.kaggle.com/code/rajmehra03/topic-modelling-using-lda-and-lsa-in-sklearn/notebook</a></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="ekstraksi_fitur.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Ekstraksi Fitur</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By The Jupyter Book Community<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
